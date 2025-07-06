@@ -1,0 +1,49 @@
+body {
+  font-family: 'Comic Sans MS', sans-serif;
+  background: #121212;
+  color: #00ffcc;
+  text-align: center;
+  padding: 2rem;
+}
+h1 {
+  font-size: 2.5rem;
+}
+#drop-area {
+  border: 3px dashed #00ffcc;
+  padding: 2rem;
+  border-radius: 20px;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 500px;
+  background: #222;
+  transition: 0.2s;
+}
+#drop-area.hover {
+  background: #333;
+}
+#file-list {
+  margin-top: 1rem;
+  text-align: left;
+  max-width: 500px;
+  margin: auto;
+}
+#file-list li {
+  margin-bottom: 5px;
+  color: #fff;
+}
+input[type="file"] {
+  display: none;
+}
+label, button {
+  padding: 0.7rem 1.5rem;
+  background: #00ffcc;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+label:hover, button:hover {
+  background: #00c9aa;
+}
