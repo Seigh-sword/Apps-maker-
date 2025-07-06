@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apps Maker™</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#00ffcc" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>📦 Apps Maker™</h1>
+  <p>Drag your files here or click to upload. We turn them into apps! 💻📱</p>
+
+  <div id="drop-area">
+    <p>Drop files here</p>
+    <p>or</p>
+    <label for="fileElem">📂 Choose Files</label>
+    <input type="file" id="fileElem" multiple>
+  </div>
+
+  <ul id="file-list"></ul>
+  <button onclick="downloadBundle()">📥 Bundle & Download</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').then(() => {
+        console.log('✅ Service Worker Registered');
+      });
+    }
+
+    // Install Prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const installBtn = document.createElement("button");
+      installBtn.textContent = "📲 Install Apps Maker™";
+      installBtn.onclick = () => {
+        deferredPrompt.prompt();
+      };
+      document.body.appendChild(installBtn);
+    });
+  </script>
+</body>
+</html>
